@@ -261,7 +261,7 @@ function LoadingScreen() {
           animation: 'spin 1s linear infinite',
           margin: '0 auto 16px'
         }} />
-        <p style={{ color: '#00d4ff' }}>Loading 3D Experience...</p>
+        <p style={{ color: '#00d4ff', fontWeight: 500 }}>Welcome to my portfolio</p>
       </div>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
@@ -744,6 +744,9 @@ function App() {
   const selectedProject = useStore((state) => state.selectedProject)
   
   useEffect(() => {
+    // Scroll to top on page load/refresh
+    window.scrollTo(0, 0)
+    
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
     window.addEventListener('resize', checkMobile)
