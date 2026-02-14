@@ -1,0 +1,27 @@
+# FastAPI Backend Requirements
+# ============================
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# ML/Inference
+numpy>=1.24.0
+onnxruntime>=1.16.0
+# onnxruntime-gpu>=1.16.0  # Uncomment for GPU support
+
+# Image Processing
+pillow>=10.0.0
+opencv-python-headless>=4.8.0
+
+# Optional: For model conversion
+# torch>=2.0.0
+# torchvision>=0.15.0
+# transformers>=4.35.0
+
+# Production
+gunicorn>=21.0.0
+
+# Development
+python-dotenv>=1.0.0
