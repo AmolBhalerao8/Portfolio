@@ -1,0 +1,327 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #030303;
+  --color-foreground: #fafafa;
+  --color-muted: #71717a;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #6366f1;
+  --color-accent-glow: rgba(99, 102, 241, 0.4);
+  --color-cyan: #22d3ee;
+  --color-purple: #a855f7;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: white;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.5),
+    rgba(168, 85, 247, 0.3),
+    rgba(34, 211, 238, 0.2)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #fff 0%, #a1a1aa 50%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, var(--cursor-x-pct, 50%)) var(--mouse-y, var(--cursor-y-pct, 50%)),
+    rgba(99, 102, 241, 0.1),
+    transparent 45%
+  );
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.4s;
+  z-index: 0;
+}
+
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.1),
+    transparent 40%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+/* Site-wide cursor atmosphere */
+.cursor-ambience-primary {
+  background: radial-gradient(
+    700px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    rgba(99, 102, 241, 0.09),
+    transparent 55%
+  );
+}
+
+.cursor-ambience-accent {
+  background: radial-gradient(
+    400px circle at calc(var(--cursor-x, 50%) + 40px) calc(var(--cursor-y, 50%) - 30px),
+    rgba(34, 211, 238, 0.06),
+    transparent 50%
+  );
+}
+
+.cursor-ambience-grid {
+  mask-image: radial-gradient(350px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), black, transparent);
+  -webkit-mask-image: radial-gradient(350px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), black, transparent);
+}
+
+.cursor-ambience-vignette {
+  background: radial-gradient(
+    900px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    transparent 0%,
+    rgba(3, 3, 3, 0.3) 100%
+  );
+}
+
+.cursor-ambience-scan {
+  top: var(--cursor-y, 50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.4),
+    rgba(34, 211, 238, 0.4),
+    transparent
+  );
+}
+
+.cursor-grid-parallax {
+  transform: translate(
+    calc((var(--cursor-x-pct, 50%) - 50%) * -0.16),
+    calc((var(--cursor-y-pct, 50%) - 50%) * -0.16)
+  );
+  transition: transform 0.6s ease-out;
+}
+
+.cursor-grid-wash {
+  background: radial-gradient(
+    600px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    rgba(99, 102, 241, 0.06),
+    transparent 70%
+  );
+}
+
+.cursor-section-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px circle at var(--cursor-x-pct, 50%) var(--cursor-y-pct, 50%),
+    rgba(99, 102, 241, 0.04),
+    transparent 60%
+  );
+  opacity: calc(var(--cursor-active, 0) * 1);
+  transition: opacity 0.5s;
+  z-index: 0;
+}
+
+.cursor-section > *:not(.cursor-section-glow) {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.section-padding {
+  @apply px-6 md:px-12 lg:px-24 py-24 md:py-32;
+}
+
+/* Each section subtly lights up near the cursor */
+main > section {
+  position: relative;
+  isolation: isolate;
+}
+
+main > section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    700px circle at var(--cursor-x-pct, 50%) var(--cursor-y-pct, 50%),
+    rgba(99, 102, 241, 0.08),
+    transparent 65%
+  );
+}
+
+main > section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+.holographic-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(99, 102, 241, 0.06) 100%
+  );
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 20px 50px -20px rgba(99, 102, 241, 0.25);
+}
+
+@keyframes pulse-glow-keyframes {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow-keyframes 4s ease-in-out infinite;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
