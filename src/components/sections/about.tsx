@@ -11,7 +11,7 @@ export function AboutSection() {
       <div className="container-max">
         <SectionHeader
           label="Founder Story"
-          title="Not a student portfolio"
+          title="Built to ship"
           description="A serious AI founder building systems that generate revenue, ship MVPs, and survive production."
         />
 
