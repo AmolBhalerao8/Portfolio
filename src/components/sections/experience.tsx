@@ -70,6 +70,16 @@ export function ExperienceSection() {
                     )}
                     <p className="text-xs font-mono text-zinc-500 mb-1">{exp.period}</p>
                     <h3 className="text-xl font-bold">{exp.company}</h3>
+                    {"website" in exp && exp.website && (
+                      <a
+                        href={exp.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-xs font-mono text-cyan-400 hover:text-cyan-300 mb-1"
+                      >
+                        {exp.website.replace("https://", "")}
+                      </a>
+                    )}
                     <p
                       className={`text-sm font-medium bg-gradient-to-r ${ACCENT_COLORS[exp.accent]} bg-clip-text text-transparent mb-3`}
                     >
