@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SITE, ACHIEVEMENTS } from "@/data/portfolio";
+import { SITE, ACHIEVEMENTS, HACKATHONS } from "@/data/portfolio";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CompetitionWins } from "@/components/sections/competition-wins";
 
@@ -63,6 +63,26 @@ export function AboutSection() {
                   <p className="text-xs text-indigo-400 font-mono mt-1">{a.year}</p>
                 </motion.div>
               ))}
+            </div>
+
+            <div className="mt-8">
+              <h3 className="text-sm font-mono uppercase tracking-wider text-zinc-500 mb-4">
+                Hackathons Wall
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {HACKATHONS.map((hackathon, i) => (
+                  <motion.span
+                    key={hackathon}
+                    initial={{ opacity: 0, y: 8 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    className="inline-flex items-center px-3 py-1.5 rounded-full glass text-xs text-zinc-300 border border-white/10"
+                  >
+                    {hackathon}
+                  </motion.span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

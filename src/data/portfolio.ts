@@ -98,6 +98,16 @@ export const ACHIEVEMENTS = [
   { title: "Manus-Level Multimodal Agent", year: "2024" },
 ] as const;
 
+export const HACKATHONS = [
+  "SFHacks",
+  "LAHacks",
+  "CalHacks",
+  "Afore Capital Hackathon",
+  "TreeHacks (Stanford Hackathon)",
+  "YC Hackathon",
+  "and many more",
+] as const;
+
 export const EXPERIENCES = [
   {
     id: "zol",
