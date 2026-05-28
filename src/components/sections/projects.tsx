@@ -109,9 +109,7 @@ function BentoCard({
               </span>
             ))}
           </div>
-          <span className="text-xs text-zinc-500 group-hover:text-white transition-colors">
-            Open →
-          </span>
+          <span className="text-xs text-zinc-500 group-hover:text-white transition-colors">→</span>
         </div>
         <div className="flex flex-wrap gap-1.5 mt-3">
           {project.tech.slice(0, 4).map((t) => (

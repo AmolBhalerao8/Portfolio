@@ -45,7 +45,7 @@ export function HeroSection() {
               transition={{ delay: 0.2 }}
               className="text-xs font-mono uppercase tracking-[0.25em] text-indigo-400 mb-4"
             >
-              AI Engineer · Founder · Systems Builder
+              AI Engineer · Founder · Forward Deployed Engineer · Systems Builder
             </motion.p>
 
             <motion.h1
