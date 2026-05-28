@@ -120,7 +120,7 @@ export const EXPERIENCES = [
   {
     id: "yc-startup",
     company: "YC-Backed Startup",
-    role: "Founding AI Engineer / MVP Consultant",
+    role: "Founding AI Engineer [MVP development]",
     period: "2024 - 2025",
     accent: "orange",
     highlight: true,
