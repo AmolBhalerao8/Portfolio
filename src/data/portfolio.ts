@@ -92,9 +92,6 @@ export const ACHIEVEMENTS = [
   { title: "YC Startup MVP Builder", year: "2024" },
   { title: "$12K ARR - ZOL", year: "2025" },
   { title: "5,000+ AI Interactions", year: "2025" },
-  { title: "NVIDIA Hackathon", year: "2024" },
-  { title: "Stanford Hackathon", year: "2024" },
-  { title: "LA Hacks", year: "2024" },
   { title: "Manus-Level Multimodal Agent", year: "2024" },
 ] as const;
 
