@@ -13,6 +13,7 @@ import { HeroSection } from "@/components/sections/hero";
 import { AboutSection } from "@/components/sections/about";
 import { CommandCenterSection } from "@/components/sections/command-center";
 import { ExperienceSection } from "@/components/sections/experience";
+import { EducationSection } from "@/components/sections/education";
 import { ProjectsSection } from "@/components/sections/projects";
 import { SkillsSection } from "@/components/sections/skills";
 import { ResearchSection } from "@/components/sections/research";
@@ -44,6 +45,7 @@ export function PortfolioPage() {
               <AboutSection />
               <CommandCenterSection />
               <ExperienceSection />
+              <EducationSection />
               <ProjectsSection />
               <SkillsSection />
               <ResearchSection />

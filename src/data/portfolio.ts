@@ -370,6 +370,19 @@ export const RESEARCH_TOPICS = [
   },
 ] as const;
 
+export const EDUCATION = [
+  {
+    id: "csu-chico",
+    school: "California State University, Chico",
+    degree: "Master's in Data Science and Analytics",
+    period: "2024 - 2026",
+    highlights: [
+      "VLM Researcher",
+      "Grader and embedded tutor for math and statistics",
+    ],
+  },
+] as const;
+
 export const ARCHITECTURE_LAYERS = [
   { name: "Interface", items: ["Voice", "Vision", "Web", "API"] },
   { name: "Orchestration", items: ["Agent Router", "Workflow Engine", "Memory"] },
@@ -382,6 +395,7 @@ export const NAV_ITEMS = [
   { id: "about", label: "Story" },
   { id: "command", label: "Systems" },
   { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "research", label: "Research" },
