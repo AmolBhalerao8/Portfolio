@@ -55,7 +55,7 @@ export function ExperienceSection() {
                 <div className="hidden md:block md:w-1/2" />
                 <div
                   className={`md:w-1/2 pl-12 md:pl-0 ${
-                    isLeft ? "md:pr-12 md:text-right" : "md:pl-12"
+                    isLeft ? "md:pr-12" : "md:pl-12"
                   }`}
                 >
                   <div
@@ -86,16 +86,15 @@ export function ExperienceSection() {
                       {exp.role}
                     </p>
                     <p className="text-sm text-zinc-400 mb-4">{exp.description}</p>
-                    <ul className={`space-y-1.5 mb-4 ${isLeft ? "md:text-right" : ""}`}>
+                    <ul className="space-y-1.5 mb-4">
                       {exp.achievements.map((a) => (
-                        <li key={a} className="text-xs text-zinc-500 flex items-start gap-2 md:justify-end">
-                          {!isLeft && <span className="text-indigo-400 shrink-0">→</span>}
+                        <li key={a} className="text-xs text-zinc-500 flex items-start gap-2">
+                          <span className="text-indigo-400 shrink-0">→</span>
                           <span>{a}</span>
-                          {isLeft && <span className="text-indigo-400 shrink-0">←</span>}
                         </li>
                       ))}
                     </ul>
-                    <div className={`flex flex-wrap gap-1.5 ${isLeft ? "md:justify-end" : ""}`}>
+                    <div className="flex flex-wrap gap-1.5">
                       {exp.tech.map((t) => (
                         <span
                           key={t}
